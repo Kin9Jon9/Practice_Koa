@@ -11,7 +11,7 @@ const Book = new Schema({
     title : String,
     authors : [Author],
     publishedDate : Date,
-    price : Number,
+    price : Number, 
     tags : [String],
     createdAt:{ //기본값을 설정할땐 이렇게 객체로 설정해줍니다.
         type : Date,
