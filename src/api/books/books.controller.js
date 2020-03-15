@@ -107,7 +107,7 @@ exports.replace = async (ctx)=>{
 exports.update = async (ctx)=>{
     const { id } = ctx.params;
 
-    if(!ObjectId.isValid(id){
+    if(!ObjectId.isValid(id)){
         ctx.status = 400;
         return;
     }
