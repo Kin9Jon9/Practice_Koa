@@ -7,6 +7,7 @@ const Router = require('koa-router');
 const app = new Koa();
 const router = new Router();
 const api = require('./api');
+const {jwtMiddleware} = require('./api/lib/token');
 
 const mongoose = require('mongoose');
 const bodyParser = require('koa-bodyparser');
@@ -28,7 +29,8 @@ const port = process.env.PORT || 4000;
 
 app.use(bodyParser());
 
-router.use('/api', api.routes());
+app.use(jwtMiddleware);
+router.use('/api', api.routes()); // api 라우트를 /api 경로 하위 라우트로 설정
 
 app.use(router.routes()).use(router.allowedMethods());
 
